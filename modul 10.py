@@ -40,7 +40,9 @@ def insert_users(firstname, lastname):
 
 
 
-def alter_users():
+# def alter_users():
+
+
     # db_cursor.execute("""
     # ALTER TABLE users ADD COLUMN age INTEGER DEFAULT  14
     # """)
@@ -53,15 +55,29 @@ def alter_users():
     #
     # """)
 
+    #
+    # db_cursor.execute("""
+    # UPDATE TABLE SET first_name='ism' WHERE first_name
+    # """)
 
-    db_cursor.execute("""
-    UPDATE TABLE SET first_name='ism' WHERE first_name
-    """)
+
 def insert_product(title, price):
     db_cursor.execute("""
     INSERT INTO product (title, price)
     VALUES(?, ?)""", (title, price))
 
+
+def update_users():
+    db_cursor.execute("""
+    UPDATE users SET first_name='Jon',
+    last_name='Doe' WHERE  id=1
+    """)
+
+
+def delete_users():
+    db_cursor.execute("""
+    DELETE FROM users WHERE id=1
+    """)
 
 def insert_orders(product_id, user_id):
     db_cursor.execute("""
@@ -79,7 +95,7 @@ def read_users():
 
 db_connect.commit()
 
-alter_users()
+# alter_users()
 print(read_users().fetchall())
 db_connect.close()
 
