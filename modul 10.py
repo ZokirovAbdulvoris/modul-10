@@ -48,7 +48,6 @@ def insert_users(firstname, lastname):
     # """)
     #
 
-
     # db_cursor.execute("""
     # ALTER TABLE users RENAME first_name to familiya
     #
@@ -79,10 +78,13 @@ def delete_users():
     DELETE FROM users WHERE id=1
     """)
 
+
 def insert_orders(product_id, user_id):
     db_cursor.execute("""
     INSERT INTO orders (product_id, user_id)
     VALUES(?, ?)""", (product_id, user_id))
+
+
 
 
 def read_users():
